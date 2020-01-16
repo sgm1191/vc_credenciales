@@ -62,7 +62,9 @@ def mexico_map_in(image):
 def id_border(image):
     gray = cv2.GaussianBlur(image, (3, 3), 0)
     ret,thresh = cv2.threshold(gray,127,255,cv2.THRESH_BINARY)
-    
+    #cv2.imshow("outline", thresh)
+    #cv2.waitKey(0)
+    #cv2.destroyAllWindows()
     conts = cv2.findContours(thresh, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
     conts = imutils.grab_contours(conts)
     conts = sorted(conts, key=cv2.contourArea, reverse=True)[:5]
